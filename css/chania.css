@@ -1,0 +1,203 @@
+@charset "utf-8";
+
+* {
+	padding:0; margin:0; box-sizing:border-box;
+}
+html {
+	scroll-behavior:smooth;
+}
+html,body {
+	font:10pt/180% 'Nanum Gothic', sans-serif;
+}
+body {overflow:hidden;}
+img 	{
+	display:block; max-width:100%;
+}
+/* 모든 링크요소*/
+a {
+	text-decoration:none; color:black;
+}
+
+/*전체레이아웃*/
+#wrapper {
+	width:600px; margin:auto;
+	border:1px solid red;
+	position:relative;
+}
+
+/*nav과 main*/
+#layout {
+	padding:10px 10px 0  10px;
+}
+
+/*상단*/
+header {
+	background:#5bb4db; color:white;
+	padding:15px;
+}
+header h1 {
+	text-align:center;
+	padding: 20px 15px;
+}
+header button {  /*햄버거 아이콘*/
+	float: left; /*붕 떠서 왼쪽으로 감*/
+	padding: 5px;
+	background: none;
+	color: white; /*햄버거는 글씨로 여겨짐*/
+	font-size: 2rem; font-weight: bold;
+	border: none;
+	margin-left: 10px; margin-top: -5px;
+}
+
+/*  내비게이션 메뉴  */
+#black {
+	position: absolute;  /*위로 붕 떠서 어딘가로 이동하거나, 붕 떠서 컨텐츠 위에 있는 상태가 됨*/
+	width: 100%; z-index: 1;  /*popup과 black은 부모가 다르기 때문에 popup인덱스1과 black인덱스1은 다름*/
+	background: rgba(0,0,0,0.85);
+	left: 0;  /*==>아이디가 black인 요소의 부모 요소인 header(->position설정 안돼있어서)에서 조상으로 거슬러 올라가서 position되어있는 곳까지 간 후 그 위치에서 왼쪽 0으로 설정하겠다는 의미*/
+	height: 100%;
+	display: none;  /*표시X*/
+}
+nav	{
+	position: relative;  /*relative하는 이유는 nav에 애니메이션 적용시킬 예정이기 때문*/
+	background: rgba(255, 255, 255, 0.9);
+	width: 60%;	height: 20%;
+	border-bottom-right-radius: 100px;
+	left: -61%;
+}
+nav ul {
+	display:flex; justify-content:space-between;
+	list-style:none  inside  url('../images/bullet.png');
+	flex-direction: column; line-height: 400%;
+	padding-top: 20px; margin-left: 30px;
+}
+nav a {
+	margin-left:-3px;
+}
+
+/*메인*/
+#m1 + p > a {
+	color:red; padding-left:20px;
+}
+main>h2 {
+	padding:30px 0 10px 0;
+}
+main>p {
+	text-align:justify;
+}
+main>p::first-letter {
+	font-size:1.5rem; font-weight:bold;
+	color:#5bb5db;
+}
+main>p>img {
+	width:150px;
+}
+main>p:first-of-type>img {
+	float:left; margin-right:10px;
+}
+main>p:last-of-type>img {
+	float:right; margin-left:10px;
+}
+main>ol {
+	color:#5bb4db;
+	list-style-position:inside;
+	margin-bottom:10px;
+}
+/*이미지 페이드 슬라이드*/
+main>figure {
+	margin-bottom:20px;
+}
+figure div	{
+	position: relative;
+}
+main>figure img {
+	width:100%; /*margin:auto;*/ 
+	border-radius:20px;
+	box-shadow:2px 2px 5px black;
+}
+figure img:not(:first-child) {
+	position: absolute; top: 0;
+}
+main>figure>figcaption {
+	font-size:0.9rem;
+	text-align:center;
+	padding-top:5px;
+}
+
+/*부가정보*/
+#layout + aside {
+	padding:15px; 
+	background:rgba(91,181,219, 0.3);
+	margin-top:20px;
+}
+#layout + aside> h3 {
+	background:url('../images/bullet.png') no-repeat left 5px;
+	padding-left:20px;
+}
+
+/*하단*/
+footer {
+	padding:15px; background:#ddd;
+}
+footer span {
+	font-size:0.9rem; color:#666;
+}
+
+/*TOP 아이콘*/
+footer + a {
+	position:fixed; bottom:10px;
+	background:white;
+	border-radius:5px;
+	box-shadow:0 0 5px black;
+	right:calc(((100% - 600px) / 2) + 5px);
+}
+footer + a:hover {
+	background:aqua;
+}
+
+/*공지사항*/
+#popup {
+	position:absolute; /*popup의 부모는 wrapper*/
+	top:0; z-index:1; /*black의 부모와 popup의 부모는 다르기 때문에 위에 있는 z-index값과 동일하지만 다름*/
+	width:100%; height:100%;
+	background:rgba(0,0,0,0.9);
+}
+#popup section {
+	max-width:400px; margin:auto;
+	background:white; margin-top:20vh;
+	padding:20px 20px 40px 20px; border-radius:20px;	
+}
+#popup section button {
+	float:right;
+}
+
+
+/*휴대폰*/
+@media(max-width:600px){
+	footer + a {right:10px;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
